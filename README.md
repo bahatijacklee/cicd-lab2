@@ -2,7 +2,7 @@
 
 A small Express and TypeScript app for the CI/CD Crash Course. Use this starting point to follow along with automated testing, GitHub Actions, and deployment to Render.
 
-The starter includes a home page, a health endpoint, and a passing health endpoint test. You will add the combined `verify` script, GitHub Actions workflow, and version endpoint during the course.
+The starter includes a home page, health and greeting endpoints, and passing endpoint tests. You will add the combined `verify` script, GitHub Actions workflow, and version endpoint during the course.
 
 ## Requirements
 
@@ -30,6 +30,12 @@ Open [localhost:3000](http://localhost:3000). The [health endpoint](http://local
 
 ```json
 {"status":"ok"}
+```
+
+The [greeting endpoint](http://localhost:3000/api/greeting) returns HTTP 200 with:
+
+```json
+{"message":"Hello, world!"}
 ```
 
 Stop the server with Ctrl+C.
