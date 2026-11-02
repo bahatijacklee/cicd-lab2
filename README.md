@@ -1,8 +1,8 @@
 # CI/CD Lab Starter
 
-A small Express and TypeScript app for the CI/CD Crash Course. Use this starting point to follow along with automated testing, GitHub Actions, and deployment to Render.
+A small Express, TypeScript, React, and Vite app for learning CI/CD with GitHub Actions. The project includes a responsive documentation website, an API health endpoint, automated tests, and a production build served by Express.
 
-The starter includes a home page, a health endpoint, and a passing health endpoint test. You will add the combined `verify` script, GitHub Actions workflow, and version endpoint during the course.
+The documentation site covers GitHub Actions fundamentals, CI/CD concepts, advanced workflows, and hands-on labs. Documentation metadata uses Markdown-compatible frontmatter and the content is kept separate from layout components.
 
 ## Requirements
 
@@ -20,13 +20,13 @@ cd cicd-lab
 npm ci
 ```
 
-Start the development server:
+Start the development API and documentation site together:
 
 ```bash
 npm run dev
 ```
 
-Open [localhost:3000](http://localhost:3000). The [health endpoint](http://localhost:3000/api/health) returns HTTP 200 with:
+Open [localhost:5173](http://localhost:5173). The Vite development server proxies `/api` requests to Express on port 3000. The [health endpoint](http://localhost:3000/api/health) returns HTTP 200 with:
 
 ```json
 {"status":"ok"}
@@ -36,11 +36,25 @@ Stop the server with Ctrl+C.
 
 ## Scripts
 
-- `npm run dev`: start the development server with automatic restarts.
-- `npm run typecheck`: check TypeScript without generating output.
-- `npm test`: run the health endpoint test. The test starts and stops its own server.
-- `npm run build`: compile the app into `dist`.
-- `npm start`: run the compiled app after building it.
+- `npm run dev`: start Express and Vite with automatic restarts.
+- `npm run dev:server`: start only the Express API.
+- `npm run dev:frontend`: start only the Vite documentation site.
+- `npm run typecheck`: check backend and frontend TypeScript without generating output.
+- `npm test`: run backend endpoint tests and Vitest/React Testing Library tests.
+- `npm run test:backend`: run the existing Express endpoint tests.
+- `npm run test:frontend`: run the documentation site tests.
+- `npm run build`: compile the backend and bundle the frontend into `dist/client`.
+- `npm start`: run the compiled Express app, including the built documentation site.
+- `npm run verify`: run all type-checks, tests, and the production build.
+
+## Frontend structure
+
+- `src/client/App.tsx`: accessible layout, routing, sidebar, search, TOC, theme, and page navigation.
+- `src/client/content.ts`: documentation metadata and Markdown content, parsed with frontmatter.
+- `src/client/styles.css`: light-green-and-white documentation design system and responsive layout.
+- `test/frontend/app.test.tsx`: navigation, search, TOC, copy, missing-page, and responsive drawer coverage.
+
+Set `VITE_GITHUB_URL` to override the repository link shown in the top navigation.
 
 ## Start your own repository
 
