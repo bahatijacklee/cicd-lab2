@@ -32,6 +32,12 @@ Open [localhost:5173](http://localhost:5173). The Vite development server proxie
 {"status":"ok"}
 ```
 
+The [greeting endpoint](http://localhost:3000/api/greeting) returns HTTP 200 with:
+
+```json
+{"message":"Hello, world!"}
+```
+
 Stop the server with Ctrl+C.
 
 ## Scripts

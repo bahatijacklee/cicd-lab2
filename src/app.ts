@@ -24,6 +24,12 @@ app.get('/api/health', (_request, response) => {
   });
 });
 
+app.get('/api/greeting', (_request, response) => {
+  response.json({
+    message: 'Hello, world!',
+  });
+});
+
 const frontendPath = path.resolve(process.cwd(), 'dist/client');
 app.use(express.static(frontendPath));
 
